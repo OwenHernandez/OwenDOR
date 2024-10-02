@@ -5,7 +5,7 @@ export default class Player {
 		let aux = 1;
 
 		for (let [key, value] of Object.entries(map)) {
-			let song = new Song(key, value);
+			let song = new Song(key, value, "cv" + aux);
 			play_song(song);
 			aux++;
 		}
