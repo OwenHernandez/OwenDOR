@@ -29,13 +29,13 @@
 }
 
 .vinyl {
-	
+	position: absolute;
 	z-index: -1;
 	width: 200px;
 	height: 200px;
 	background-color: black;
 	border-radius: 50%;
-	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2) 30%, black 70%);
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 10%, rgba(0, 0, 0, 0.2) 10%, black 50%);
 }
 
 .detail {
@@ -60,7 +60,7 @@
 }
 
 .showDisc {
-	transform: translate(100px);
+	transform: translate(100px) rotate(360deg);
 	transition-duration: 1s;
 }
 
