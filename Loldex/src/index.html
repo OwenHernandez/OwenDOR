@@ -11,12 +11,24 @@
         <h1>Loldex</h1>
         <div class="cardList"></div>
     </div>
-    <div id="legendModal" class="modal">
+    <div id="legendModal" class="modal hide">
         <div class="modal-content">
-            <img src="a" class="modal-img" alt="no img"/>
-            <button class="modal-close">X</button>
-            <h4 id="modalTitle"></h4>
-            <p id="modalDescription"></p>
+            <div class="modal-header">
+                <img src="#" id="modal-img" alt="no img"/>
+                <div class="modal-text">
+                    <h4 id="modalTitle"></h4>
+                    <p id="modalDescription"></p>
+                </div>
+                <button class="modal-close">X</button>
+            </div>
+            <hr>
+            <div class="modal-body">
+                <div class="modal-tags"></div>
+                <hr>
+                <div class="modal-info"></div>
+                <hr>
+                <div class="modal-stats"></div>
+            </div>
         </div>
     </div>
     <script src="js/index.js" type="module"></script>

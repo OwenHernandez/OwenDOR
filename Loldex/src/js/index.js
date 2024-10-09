@@ -80,7 +80,7 @@ async function renderLegends() {
             divTags.appendChild(divTag2);
         }
         card.appendChild(divTags);
-        card.addEventListener('click', () => showSelectedLegend(legend));
+        card.addEventListener('click', () => showModal(legend));
 
         cardList.appendChild(card);
     });
@@ -93,7 +93,7 @@ function renderLegend(legend) {
     const card = document.createElement('div');
     card.classList.add('card');
     const img = document.createElement('img');
-    img.src = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${legend.image.full}`;
+    img.src = `https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/${legend.image.full}`;
     const h2 = document.createElement('h2');
     h2.innerHTML = legend.name;
     const pTitle = document.createElement('p');
@@ -162,22 +162,77 @@ function renderLegend(legend) {
     cardList.appendChild(card);
 }
 
-function showSelectedLegend(legend) {
+const modal = document.querySelector('.modal');
+const closeButton = document.querySelector('.modal-close');
 
+// Función para mostrar el modal
+function showModal(legend) {
     // Set modal title and description (or any other content)
-    document.getElementById('modalImage').src = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${legend.image.full}`;
+    document.getElementById('modal-img').src = `https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/${legend.image.full}`;
     document.getElementById('modalTitle').innerHTML = legend.name;
     document.getElementById('modalDescription').innerHTML = legend.title;
 
-    // Show the modal
-    const modal = document.getElementById('legendModal');
-    modal.classList.add('show');
-    modal.classList.remove('hide');
-
-    // Add event listener to close the modal when close button is clicked
-    document.querySelector('.modal-close').addEventListener('click', function() {
-        modal.classList.remove('show');
-        modal.classList.add('hide');
+    document.querySelector('.modal-tags').innerHTML = '';
+    legend.tags.forEach(tag => {
+        const divTag = document.createElement('div');
+        divTag.classList.add('tag');
+        switch (tag) {
+            case 'Fighter':
+                divTag.classList.add('fighter');
+                break;
+            case 'Mage':
+                divTag.classList.add('mage');
+                break;
+            case 'Assassin':
+                divTag.classList.add('assassin');
+                break;
+            case 'Tank':
+                divTag.classList.add('tank');
+                break;
+            case 'Support':
+                divTag.classList.add('support');
+                break;
+            case 'Marksman':
+                divTag.classList.add('marksman');
+                break;
+        }
+        document.querySelector('.modal-tags').appendChild(divTag);
     });
 
+    document.querySelector('.modal-stats').innerHTML = '';
+    const stats = legend.stats;
+    for (const [key, value] of Object.entries(stats)) {
+        const divStat = document.createElement('div');
+        divStat.classList.add('stat');
+        divStat.innerHTML = `${key}: ${value}`;
+        document.querySelector('.modal-stats').appendChild(divStat);
+    }
+
+    document.querySelector('.modal-info').innerHTML = '';
+    const info = legend.info;
+    for (const [key, value] of Object.entries(info)) {
+        const divInfo = document.createElement('div');
+        divInfo.classList.add('info');
+        divInfo.innerHTML = `${key}: ${value}`;
+        document.querySelector('.modal-info').appendChild(divInfo);
+    }
+
+    modal.style.display = 'flex';
+
+    setTimeout(() => {
+        modal.classList.remove('hide');
+        modal.classList.add('show'); 
+    }, 200);
 }
+
+function hideModal() {
+    modal.classList.remove('show');
+    modal.classList.add('hide');
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 500);
+}
+
+// Cerrar el modal cuando se hace clic en el botón de cerrar
+closeButton.addEventListener('click', hideModal);

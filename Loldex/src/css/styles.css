@@ -38,6 +38,7 @@ h1 {
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(145, 123, 0, 0.555);
+    text-decoration: underline;
 }
 
 .card>img {
@@ -49,6 +50,7 @@ h1 {
 .tags {
     display: flex;
     justify-content: space-around;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -56,6 +58,7 @@ h1 {
 .tag {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .fighter {
@@ -110,23 +113,62 @@ h1 {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 200px;
+    padding-top: 100px;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #202020;
     padding: 20px;
     border: 1px solid rgba(145, 123, 0, 0.555);
-    width: 80%;
+    width: 30%;
     border-radius: 10px;
+    transform: translateY(200%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal.show .modal-content {
+    transform: translateY(-15%); /* Posición final cuando se muestra el modal */
+}
+
+.modal.hide .modal-content {
+    transform: translateY(200%); /* Posición fuera de la pantalla al ocultar */
 }
 
 .modal-close {
     color: #aaaaaa;
     font-weight: bold;
+    float: right;
     background-color: #202020;
     border: 1px solid rgba(145, 123, 0, 0.555);
     border-radius: 3px;
+    height: 50%;
+}
+
+.modal-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
 }
 
 .modal-close:hover,
@@ -136,11 +178,43 @@ h1 {
     cursor: pointer;
 }
 
-.show {
-    display: block;
-    transform: translate(0, 0);
+.modal-tags {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
-.hide {
-    transform: translate(0, -100%);
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid rgba(145, 123, 0, 0.555);
+}
+
+.modal-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modal-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
 }
