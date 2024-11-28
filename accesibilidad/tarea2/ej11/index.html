@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Zapatos Deportivos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .precio {
+      font-size: 20px;
+      /*Cambiar le color para mejorar el contraste*/
+      color: blue;
+    }
+    .boton {
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Zapatos Deportivos</h1>
+    <div>
+      <!--Poner "alt" por si la imagen no carga te ponga un texto alternativo-->
+      <img src="zapatos.jpg" alt="Zapatos para correr">
+      <p>Los mejores zapatos para correr.</p>
+      <p class="precio">Precio: $50</p>
+    </div>
+    <!--Poner "role='alert'" para indicar que se va a abrir un alert-->
+    <div class="boton" onclick="alert('Producto añadido al carrito')" role="alert">Añadir al carrito</div>
+  </div>
+</body>
+</html>

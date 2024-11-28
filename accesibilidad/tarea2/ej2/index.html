@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Registro</title>
+</head>
+
+<body>
+    <h1>Formulario de Registro</h1>
+    <form>
+        <!--Poner un label a cada input-->
+        <label for="nombre">Nombre</label>
+        <!--Notificamos el error con aria-describedby-->
+        <input type="text" placeholder="Nombre" id="nombre" aria-describedby="errNombre">
+        <span id="errNombre">Por favor, Escriba un nombre</span>
+        <label for="email">Email</label>
+        <input type="email" placeholder="Correo electrónico" id="email" aria-describedby="errEmail">
+        <span id="errEmail">Por favor, Escriba un email correcto</span>
+        <button>Enviar</button>
+    </form>
+</body>
+
+</html>

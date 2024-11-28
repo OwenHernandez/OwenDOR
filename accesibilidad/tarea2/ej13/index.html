@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Formulario de Inscripción</title>
+</head>
+<body>
+  <h1>Formulario de Inscripción</h1>
+  <form>
+    <div>
+      <!--Poner un "aria-describedby" en el input para decir el error y un label para que sepa de que trata el input-->
+      <label for="nombre">Nombre completo</label>
+      <input type="text" placeholder="Nombre completo" id="nombre" aria-describedby="errNombre">
+      <span id="errNombre">Por favor, Escriba un nombre</span>
+    </div>
+    <div>
+      <!--Poner un "aria-describedby" en el input para decir el error y un label para que sepa de que trata el input-->
+      <label for="email">Email</label>
+      <input type="email" placeholder="Correo electrónico" id="email" aria-describedby="errEmail">
+      <span id="errEmail">Por favor, Escriba un email correcto</span>
+    </div>
+    <div>
+      <!--Poner un "aria-describedby" en el input para decir el error-->
+      <select aria-expanded="false" aria-describedby="errPais">
+        <option>Seleccionar país</option>
+        <option>México</option>
+        <option>España</option>
+        <option>Colombia</option>
+      </select>
+      <span id="errPais">Por favor, seleccione un país</span>
+    </div>
+    <div>
+      <!--Poner un "aria-label" para decir que es un botón de enviar-->
+      <button aria-label="Enviar Formulario">Enviar</button>
+    </div>
+  </form>
+</body>
+</html>
